@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const PostsList = () => {
 
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(null);
 
     const url = import.meta.env.VITE_ENDPOINT_URL;
 
@@ -33,9 +33,9 @@ const PostsList = () => {
                                             <h4 className="card-title">{title}</h4>
                                             <p className="card-text">{tags}</p>
                                             
-                                            <NavLink to={ '/posts-list/' + id }>
+                                            <Link to={ '/posts-list/' + id }>
                                                 <button> Vai al post</button>
-                                            </NavLink>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

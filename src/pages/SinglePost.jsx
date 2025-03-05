@@ -3,7 +3,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 const SinglePost = () => {
-
     const { index } = useParams();
 
     const initialObjectPost = {
@@ -28,9 +27,9 @@ const SinglePost = () => {
 
     return (
         <>
-            <h1>Post Singolo: {post.title}</h1>
+            <h1>Post Singolo: {title} - { id }</h1>
         </>
-    )
-}
+    );
+};
 
 export default SinglePost;

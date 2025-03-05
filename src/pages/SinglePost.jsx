@@ -19,13 +19,13 @@ const SinglePost = () => {
 
     // const url = import.meta.env.VITE_ENDPOINT_URL;
 
-    const { post, fetchPost} = useGlobalContext()
+    const { post, fetchSingolPost} = useGlobalContext()
 
     useEffect(() => {
         // axios.get(url + '/' + id)
         //     .then((res) => setPost(res.data))
         //     .catch((err) => console.error(err))
-        fetchPost(index)
+        fetchSingolPost(index)
 
     }, [index]);
 

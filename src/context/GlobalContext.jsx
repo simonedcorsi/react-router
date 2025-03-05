@@ -35,7 +35,7 @@ const GlobalProvider = ({ children }) => {
     const value = {
         posts,
         post,
-        fetchPosts
+        fetchPosts,
         fetchSingolPost
     }
 
@@ -47,8 +47,9 @@ const GlobalProvider = ({ children }) => {
 
 };
 
-const useGlobalContext = useContext(GlobalContext)
+const useGlobalContext = () => useContext(GlobalContext)
 
 export {
+    GlobalProvider,
     useGlobalContext
 }

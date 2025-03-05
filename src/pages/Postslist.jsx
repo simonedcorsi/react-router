@@ -1,18 +1,27 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
+
+import { useGlobalContext } from "../context/GlobalContext";
 
 const PostsList = () => {
 
-    const [posts, setPosts] = useState(null);
+    // const [posts, setPosts] = useState(null);
 
-    const url = import.meta.env.VITE_ENDPOINT_URL;
+    // const url = import.meta.env.VITE_ENDPOINT_URL;
+
+    const { posts, fetchPosts } = useGlobalContext();
+    
+    if (posts === null) {
+        fetchPosts()
+    }
+
 
     useEffect(() => {
-        axios.get(url)
-            .then((res) => setPosts(res.data))
-            .catch((err) => console.error(err))
-    });
+        // axios.get(url)
+        //     .then((res) => setPosts(res.data))
+        //     .catch((err) => console.error(err))
+    }, []);
 
     return (
         <>

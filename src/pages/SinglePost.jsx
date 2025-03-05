@@ -1,26 +1,32 @@
 import { useParams } from "react-router-dom"
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+
+import { useGlobalContext } from "../context/GlobalContext";
 
 const SinglePost = () => {
     const { index } = useParams();
 
-    const initialObjectPost = {
-        id: '',
-        title: '',
-        content: '',
-        image: '',
-        tags: [],
-    };
+    // const initialObjectPost = {
+    //     id: '',
+    //     title: '',
+    //     content: '',
+    //     image: '',
+    //     tags: [],
+    // };
 
-    const [post, setPost] = useState(initialObjectPost);
+    // const [post, setPost] = useState(initialObjectPost);
 
-    const url = import.meta.env.VITE_ENDPOINT_URL;
+    // const url = import.meta.env.VITE_ENDPOINT_URL;
+
+    const { post, fetchPost} = useGlobalContext()
 
     useEffect(() => {
-        axios.get(url + '/' + id)
-            .then((res) => setPost(res.data))
-            .catch((err) => console.error(err))
+        // axios.get(url + '/' + id)
+        //     .then((res) => setPost(res.data))
+        //     .catch((err) => console.error(err))
+        fetchPost(index)
+
     }, [index]);
 
     const { id, title, content, image, tags } = post;
